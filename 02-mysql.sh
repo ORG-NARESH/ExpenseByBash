@@ -6,30 +6,30 @@ then
 echo -e "\e[31m You do not have root privileges, Please use sudo \e[0m"
 exit 2
 else
-echo -e "\e[32mYour running as admin, Proceeding for next steps\e[0m"
+echo -e "\e[32m Your running as admin, Proceeding for next steps \e[0m"
 fi
 
 
 stat() {
 if [ $1 -eq 0 ];
 then
-echo -n "\e[32m success \e[0"
+echo -e "\e[32m success \e[0"   
 else
-echo -n "You have some issues please verify"
+echo -e "You have some issues please verify"
 fi
 }
 
 read -p "Enter mysql password :" MYSQLPASSWORD
 
-echo -n "$COMPONENT is instaling :"
+echo -e "$COMPONENT is instaling :"
 dnf install mysql-server -y &>> $LOGFILE
 stat $?
 
-echo -n "$COMPONENT is starting :"
-systemctl enable mysqld
-systemctl start  mysqld
+echo -e "$COMPONENT is starting :"
+systemctl enable mysqld &>> $LOGFILE
+systemctl start  mysqld &>> $LOGFILE
 stat $?         
 
-echo -n "$COMPONENT setting root password :"
-mysql_secure_installation --set-root-pass $MYSQLPASSWORD
+echo -e "$COMPONENT setting root password :"
+mysql_secure_installation --set-root-pass $MYSQLPASSWORD &>> $LOGFILE
 stat $?
