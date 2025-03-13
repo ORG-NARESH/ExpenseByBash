@@ -4,7 +4,7 @@ LOGFILE=/tmp/$COMPONENT.log
 HOSTNAME=mysql.eternallearnings.shop
 MYSQL_IPADDRESS=172.31.35.114
 #MYSQLPASSWORD=$1
-if [ id -ne 0 ];
+if [ $(id -u) -ne 0 ];
 then
 echo -e "\e[31m Your NOT a root user, Please use sudo \e[0m"
 exit 2
