@@ -23,7 +23,7 @@ curl -o /tmp/frontend.zip https://expense-web-app.s3.amazonaws.com/frontend.zip 
 cd /usr/share/$COMPONENT/html &>> $LOGFILE
 unzip /tmp/frontend.zip &>> $LOGFILE
 echo -e "\e[32m copying expense.conf to folder \e[0m"
-cp expense.conf /etc/nginx/default.d/ &>> $LOGFILE
+cp /home/ec2-user/ExpenseByBash/expense.conf /etc/nginx/default.d/  &>> $LOGFILE
 stat
 echo -e "\e[32m Restarting $COMPONENT to folder \e[0m"
 systemctl restart $COMPONENT &>> $LOGFILE

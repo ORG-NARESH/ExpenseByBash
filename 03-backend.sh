@@ -39,7 +39,7 @@ echo -e "creating user expense :"
 useradd expense &>> $LOGFILE
 stat $?
 echo -e "creating app folder :"
-mkdir /app &>> $LOGFILE
+mkdir -p /app &>> $LOGFILE
 stat $?
 echo -e "dowloading backend folder from git:"
 curl -o /tmp/$COMPONENT.zip https://expense-web-app.s3.amazonaws.com/$COMPONENT.zip &>> $LOGFILE
@@ -54,9 +54,9 @@ echo -e "npm installing :"
 npm install &>> $LOGFILE
 stat $?
 
-echo -e "copy backend.service file to des location"
+echo -e "copy /home/ec2-user/ExpenseByBash/backend.service file to des location"
 
-cp backend.service /etc/systemd/system/  &>> $LOGFILE
+cp /home/ec2-user/ExpenseByBash/backend.service /etc/systemd/system/ &>> $LOGFILE
       
 chmod -R 775 /app &>> $LOGFILE
 stat $?
