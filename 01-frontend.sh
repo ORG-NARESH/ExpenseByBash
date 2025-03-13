@@ -20,32 +20,32 @@ echo -e "\e[31m You have some issues please verify \e[0m"
 fi
 }
 
-echo -e "\e[32m Installing $COMPONENT \e[0m"
+echo  "Installing $COMPONENT"
 dnf install  $COMPONENT -y &>> $LOGFILE
 stat $?
 echo -e "enable $COMPONENT "
 systemctl enable $COMPONENT &>> $LOGFILE
 stat $?
-echo -e "starting $COMPONENT "
+echo -e "starting $COMPONENT"
 systemctl start $COMPONENT  &>> $LOGFILE
 stat $?
-echo -e "\e[32m remove all existing file from html  \e[0m"
+echo -e "remove all existing file from html"
 rm -rf /usr/share/$COMPONENT/html/*     &>> $LOGFILE  
 stat $?
-echo -e "\e[32m download .zip file from git  \e[0m"
+echo "download .zip file from git"
 curl -o /tmp/frontend.zip https://expense-web-app.s3.amazonaws.com/frontend.zip &>> $LOGFILE
 stat $?
-echo -e "\e[32m cd to html  \e[0m"
+echo -e "cd to html"
 cd /usr/share/$COMPONENT/html &>> $LOGFILE
 stat $?
-echo -e "\e[32m unzip  \e[0m"
+echo -e "unzip"
 unzip -o /tmp/frontend.zip &>> $LOGFILE
 stat $?
-echo -e "\e[32m copying expense.conf to folder \e[0m"
+echo "copying expense.conf to folder"
 cp /home/ec2-user/ExpenseByBash/expense.conf /etc/nginx/default.d/  &>> $LOGFILE
 stat $?
 echo  "Restarting $COMPONENT"
 systemctl restart $COMPONENT &>> $LOGFILE
 stat $?
 systemctl status $COMPONENT &>> $LOGFILE
-echo "\e[32m $COMPONENT looks good \e[0m"
+echo -e "\e[32m ********$COMPONENT looks good********* \e[0m"
