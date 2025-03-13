@@ -1,7 +1,7 @@
 #!/bin/bash
 COMPONENT=backend
 LOGFILE=/tmp/$COMPONENT.log
-HOSTNAME=mysql.eternallearnings.shop
+MYSQL_HOSTNAME=mysql.eternallearnings.shop
 MYSQL_IPADDRESS=172.31.41.206
 #MYSQLPASSWORD=$1
 if [ $(id -u) -ne 0 ];
@@ -40,7 +40,7 @@ useradd expense &>> $LOGFILE
 appuser=expense
 if [ -n $(id -u $appuser) ];
 then
-echo "ID $appuser exits"
+echo "But,id $appuser already exits"
 else
 echo "creating account $appuser"
 fi
