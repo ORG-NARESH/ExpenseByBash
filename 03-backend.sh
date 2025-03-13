@@ -53,6 +53,10 @@ stat $?
 echo -e "npm installing :"
 npm install &>> $LOGFILE
 stat $?
+
+echo -e "copy backend.service file to des location"
+
+cp backend.service /etc/systemd/system/  &>> $LOGFILE
       
 chmod -R 775 /app &>> $LOGFILE
 stat $?
