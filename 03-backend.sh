@@ -2,7 +2,7 @@
 COMPONENT=backend
 LOGFILE=/tmp/$COMPONENT.log
 HOSTNAME=mysql.eternallearnings.shop
-MYSQL_IPADDRESS=172.31.35.114
+MYSQL_IPADDRESS=172.31.41.206
 #MYSQLPASSWORD=$1
 if [ $(id -u) -ne 0 ];
 then
