@@ -14,28 +14,37 @@ fi
 stat() {
 if [ $1 -eq 0 ];
 then
-echo -n "\e[32m success \e[0"
+echo -e "\e[32m success \e[0m"
 else
-echo -n "You have some issues please verify"
+echo -e "\e[31m You have some issues please verify \e[0m"
 fi
 }
 
 echo -e "\e[32m Installing $COMPONENT \e[0m"
 dnf install  $COMPONENT -y &>> $LOGFILE
 stat $?
-echo -e "\e[33m Enable $COMPONENT \e[0m"
+echo -e "Enable $COMPONENT "
+stat $?
 systemctl enable $COMPONENT &>> $LOGFILE
-echo -e "\e[34m starting $COMPONENT \e[0m"
+stat $?
+echo -e "starting $COMPONENT "
 systemctl start $COMPONENT  &>> $LOGFILE
-rm -rf /usr/share/$COMPONENT/html/*      &>> $LOGFILE  
+stat $?
+rm -rf /usr/share/$COMPONENT/html/*     &>> $LOGFILE  
+stat $?
 curl -o /tmp/frontend.zip https://expense-web-app.s3.amazonaws.com/frontend.zip &>> $LOGFILE
+stat $?
 cd /usr/share/$COMPONENT/html &>> $LOGFILE
-unzip /tmp/frontend.zip &>> $LOGFILE
+stat $?
+unzip -0 /tmp/frontend.zip &>> $LOGFILE
+stat $?
 echo -e "\e[32m copying expense.conf to folder \e[0m"
 cp /home/ec2-user/ExpenseByBash/expense.conf /etc/nginx/default.d/  &>> $LOGFILE
-stat
+stat $?
 echo -e "\e[32m Restarting $COMPONENT to folder \e[0m"
 systemctl restart $COMPONENT &>> $LOGFILE
-systemctl status $COMPONENT &>> $LOGFILE
 stat $?
 set-hostname $COMPONENT
+stat $?
+systemctl status $COMPONENT &>> $LOGFILE
+echo "\e[32m $COMPONENT looks good \e[0m"
