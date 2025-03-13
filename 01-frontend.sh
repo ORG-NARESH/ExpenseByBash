@@ -39,7 +39,7 @@ echo -e "\e[32m cd to html  \e[0m"
 cd /usr/share/$COMPONENT/html &>> $LOGFILE
 stat $?
 echo -e "\e[32m unzip  \e[0m"
-unzip -0 /tmp/frontend.zip &>> $LOGFILE
+unzip -o /tmp/frontend.zip &>> $LOGFILE
 stat $?
 echo -e "\e[32m copying expense.conf to folder \e[0m"
 cp /home/ec2-user/ExpenseByBash/expense.conf /etc/nginx/default.d/  &>> $LOGFILE
