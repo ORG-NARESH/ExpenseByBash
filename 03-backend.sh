@@ -2,14 +2,14 @@
 COMPONENT=backend
 LOGFILE=/tmp/$COMPONENT.log
 HOSTNAME=mysql.eternallearnings.shop
-MYSQL_IPADDRESS=
+MYSQL_IPADDRESS=172.31.35.114
 #MYSQLPASSWORD=$1
 if [ id -ne 0 ];
 then
-echo "\e[31m Your NOT a root user, Please use sudo \e[0m"
+echo -e "\e[31m Your NOT a root user, Please use sudo \e[0m"
 exit 2
 else
-echo "\e[32mYour running as admin, Proceeding for next steps\e[0m"
+echo -e "\e[32m Your running as admin, Proceeding for next steps\e[0m"
 fi
 
 
@@ -20,9 +20,9 @@ read -p "Enter mysql password :" MYSQLPASSWORD
 stat() {
 if [ $1 -eq 0 ];
 then
-echo -n "\e[32m success \e[0"
+echo -e "\e[32m success \e[0m"
 else
-echo -n "You have some issues please verify"
+echo -e "\e[31m You have some issues please verify \e[0m"
 fi
 }
 
@@ -74,3 +74,5 @@ stat $?
 echo -e "backend service started :"
 systemctl start $COMPONENT &>> $LOGFILE
 stat $?
+systemctl status $COMPONENT &>> $LOGFILE
+echo -e "\e[33m ********$COMPONENT service is running fine********** \e[0m ]"
