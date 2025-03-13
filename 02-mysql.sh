@@ -1,12 +1,12 @@
 #!/bin/bash
 COMPONENT=mysql
 LOGFILE=/tmp/$COMPONENT.log
-if [ id -ne 0 ];
+if [ $(id -u root) -ne 0 ];
 then
-echo "\e[31m Your NOT a root user, Please use sudo \e[0m"
+echo -n "\e[31m Your NOT a root user, Please use sudo \e[0m"
 exit 2
 else
-echo "\e[32mYour running as admin, Proceeding for next steps\e[0m"
+echo -n "\e[32mYour running as admin, Proceeding for next steps\e[0m"
 fi
 
 
