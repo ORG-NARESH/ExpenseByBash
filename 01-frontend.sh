@@ -44,10 +44,8 @@ stat $?
 echo -e "\e[32m copying expense.conf to folder \e[0m"
 cp /home/ec2-user/ExpenseByBash/expense.conf /etc/nginx/default.d/  &>> $LOGFILE
 stat $?
-echo -e "\e[32m Restarting $COMPONENT to folder \e[0m"
+echo  "Restarting $COMPONENT"
 systemctl restart $COMPONENT &>> $LOGFILE
-stat $?
-set-hostname $COMPONENT &>> $LOGFILE
 stat $?
 systemctl status $COMPONENT &>> $LOGFILE
 echo "\e[32m $COMPONENT looks good \e[0m"
