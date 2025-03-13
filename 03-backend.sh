@@ -48,9 +48,9 @@ echo -e "cd to /app :"
 cd /app &>> $LOGFILE
 stat $?
 echo -e "unzip backend folder :"
-unzip -0 /tmp/$COMPONENT.zip &>> $LOGFILE
+unzip -o /tmp/$COMPONENT.zip &>> $LOGFILE
 stat $?
-echo -e "npm installing :"
+echo -e "npm installing"
 npm install &>> $LOGFILE
 stat $?
 
