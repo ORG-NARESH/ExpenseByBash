@@ -23,19 +23,22 @@ fi
 echo -e "\e[32m Installing $COMPONENT \e[0m"
 dnf install  $COMPONENT -y &>> $LOGFILE
 stat $?
-echo -e "Enable $COMPONENT "
-stat $?
+echo -e "enable $COMPONENT "
 systemctl enable $COMPONENT &>> $LOGFILE
 stat $?
 echo -e "starting $COMPONENT "
 systemctl start $COMPONENT  &>> $LOGFILE
 stat $?
+echo -e "\e[32m remove all existing file from html  \e[0m"
 rm -rf /usr/share/$COMPONENT/html/*     &>> $LOGFILE  
 stat $?
+echo -e "\e[32m download .zip file from git  \e[0m"
 curl -o /tmp/frontend.zip https://expense-web-app.s3.amazonaws.com/frontend.zip &>> $LOGFILE
 stat $?
+echo -e "\e[32m cd to html  \e[0m"
 cd /usr/share/$COMPONENT/html &>> $LOGFILE
 stat $?
+echo -e "\e[32m unzip  \e[0m"
 unzip -0 /tmp/frontend.zip &>> $LOGFILE
 stat $?
 echo -e "\e[32m copying expense.conf to folder \e[0m"
@@ -44,7 +47,7 @@ stat $?
 echo -e "\e[32m Restarting $COMPONENT to folder \e[0m"
 systemctl restart $COMPONENT &>> $LOGFILE
 stat $?
-set-hostname $COMPONENT
+set-hostname $COMPONENT &>> $LOGFILE
 stat $?
 systemctl status $COMPONENT &>> $LOGFILE
 echo "\e[32m $COMPONENT looks good \e[0m"
