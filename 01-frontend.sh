@@ -29,3 +29,4 @@ echo -e "\e[32m Restarting $COMPONENT to folder \e[0m"
 systemctl restart $COMPONENT &>> $LOGFILE
 systemctl status $COMPONENT &>> $LOGFILE
 stat $?
+set-hostname $COMPONENT
