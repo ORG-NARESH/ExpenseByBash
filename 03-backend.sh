@@ -1,8 +1,8 @@
 #!/bin/bash
 COMPONENT=backend
 LOGFILE=/tmp/$COMPONENT.log
-MYSQL_HOSTNAME=mysql.eternallearnings.shop
-MYSQL_IPADDRESS=172.31.41.206
+#MYSQL_HOSTNAME=mysql.eternallearnings.shop
+#MYSQL_IPADDRESS=172.31.41.206
 #MYSQLPASSWORD=$1
 if [ $(id -u) -ne 0 ];
 then
@@ -13,7 +13,7 @@ echo -e "\e[32m Your running as admin, Proceeding for next steps\e[0m"
 fi
 
 
-read -p "Enter mysql password :" MYSQLPASSWORD
+#read -p "Enter mysql password :" MYSQLPASSWORD
 
 
 
@@ -73,7 +73,7 @@ echo -e "mysql installing :"
 dnf install mysql-server -y &>> $LOGFILE
 stat $?
 echo -e "Injecting schema :"
-mysql -h $MYSQL_IPADDRESS -uroot -p$MYSQLPASSWORD < /app/schema/$COMPONENT.sql &>> $LOGFILE
+mysql -h  172.31.41.206 -uroot -pExpenseApp@1 < /app/schema/$COMPONENT.sql &>> $LOGFILE
 stat $?
 echo -e "deamon reload :"
 systemctl daemon-reload &>> $LOGFILE
