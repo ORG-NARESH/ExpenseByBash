@@ -1,5 +1,5 @@
 #!/bin/bash
-/usr/bin/aws aws ec2 run-instances \
+/home/ec2-user/usr/bin/aws aws ec2 run-instances \
     --image-id ami-0fcc78c828f981df2 \
     --count 1 \
     --instance-type t3.micro \

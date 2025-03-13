@@ -5,9 +5,9 @@ LOGFILE=/tmp/$COMPONENT.log
 stat() {
 if [ $1 -eq 0 ];
 then
-echo -e "\e[32m success \e[0"
+echo -n "\e[32m success \e[0"
 else
-echo -e "You have some issues please verify"
+echo -n "You have some issues please verify"
 fi
 }
 
