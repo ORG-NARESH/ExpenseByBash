@@ -37,7 +37,13 @@ dnf install nodejs -y &>> $LOGFILE
 stat $?
 echo -e "creating user expense :"
 useradd expense &>> $LOGFILE
-stat $?
+appuser=expense
+if [ -n $(id -u $appuser) ];
+then
+echo "ID $appuser exits"
+else
+echo "creating account $appuser"
+fi
 echo -e "creating app folder :"
 mkdir -p /app &>> $LOGFILE
 stat $?
