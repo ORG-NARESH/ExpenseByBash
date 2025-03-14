@@ -73,7 +73,7 @@ echo -e "mysql installing :"
 dnf install mysql-server -y &>> $LOGFILE
 stat $?
 echo -e "Injecting schema :"
-mysql -h  172.31.41.206 -uroot -pExpenseApp@1 < /app/schema/$COMPONENT.sql &>> $LOGFILE
+mysql -h  172.31.34.84 -uroot -pExpenseApp@1 < /app/schema/$COMPONENT.sql &>> $LOGFILE
 stat $?
 echo -e "deamon reload :"
 systemctl daemon-reload &>> $LOGFILE
