@@ -2,7 +2,7 @@
 COMPONENT=backend
 #LOGFILE=/tmp/$COMPONENT.log
 MYSQL_HOSTNAME=mysql.eternallearnings.shop
-source common.sh
+source ./common.sh
 # if [ $(id -u) -ne 0 ];
 # then
 # echo -e "\e[31m Your NOT a root user, Please use sudo \e[0m"

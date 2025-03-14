@@ -19,7 +19,7 @@ COMPONENT=nginx
 # echo -e "\e[31m You have some issues please verify \e[0m"
 # fi
 # }
-source common.sh
+source ./common.sh
 echo  "Installing $COMPONENT"
 dnf install  $COMPONENT -y &>> $LOGFILE
 stat $?
