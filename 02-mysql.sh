@@ -18,7 +18,7 @@ COMPONENT=mysql
 # echo -e "You have some issues please verify"
 # fi
 # }
-source common.sh
+source ./common.sh
 
 read -p "Enter mysql password :" MYSQLPASSWORD
 
