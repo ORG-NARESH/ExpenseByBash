@@ -19,7 +19,7 @@ echo -e "You have some issues please verify"
 fi
 }
 
-#read -p "Enter mysql password :" MYSQLPASSWORD
+read -p "Enter mysql password :" MYSQLPASSWORD
 
 echo -e "$COMPONENT is instaling :"
 dnf install mysql-server -y &>> $LOGFILE
@@ -31,5 +31,5 @@ systemctl start  mysqld &>> $LOGFILE
 stat $?         
 
 echo -e "$COMPONENT setting root password :"
-mysql_secure_installation --set-root-pass ExpenseApp@1  &>> $LOGFILE
+mysql_secure_installation --set-root-pass $MYSQLPASSWORD  &>> $LOGFILE
 stat $?
