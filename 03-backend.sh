@@ -13,7 +13,7 @@ echo -e "\e[32m Your running as admin, Proceeding for next steps\e[0m"
 fi
 
 
-read -p "Enter MySQL password: " MYSQLPASSWORD
+read -p "Enter mysql password :" MYSQLPASSWORD
 
 
 
