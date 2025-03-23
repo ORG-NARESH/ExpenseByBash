@@ -10,7 +10,7 @@
 
 COMPONENT=backend
 
-MYSQL_HOSTNAME=mysql.eternallearnings.shop
+MYSQL_HOSTNAME=172.31.42.80
 source ./common.sh
 read -p "Enter mysql password :" MYSQLPASSWORD
 
