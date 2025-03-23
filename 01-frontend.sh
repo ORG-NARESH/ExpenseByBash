@@ -1,24 +1,15 @@
 #!/bin/bash
 
+# Author: Naresh S
+# Date: March-10-2025
+#
+# This script outputs creation of frontend web server - Nginix
+#
+# Version: 1
+########################
+
 COMPONENT=nginx
-# LOGFILE=/tmp/$COMPONENT.log
 
-# if [ $(id -u) -ne 0 ];
-# then
-# echo -e "\e[31m Your NOT a root user, Please use sudo \e[0m"
-# exit 2
-# else
-# echo -e "\e[32m Your running as admin, Proceeding for next steps\e[0m"
-# fi
-
-# stat() {
-# if [ $1 -eq 0 ];
-# then
-# echo -e "\e[32m success \e[0m"
-# else
-# echo -e "\e[31m You have some issues please verify \e[0m"
-# fi
-# }
 source ./common.sh
 echo  "Installing $COMPONENT"
 dnf install  $COMPONENT -y &>> $LOGFILE

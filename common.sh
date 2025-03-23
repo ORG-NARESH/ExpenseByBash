@@ -1,3 +1,4 @@
+#!/bin/bash
 LOGFILE=/tmp/$COMPONENT.log
 
 #condition to check user logged in as root or not

@@ -1,29 +1,18 @@
 #!/bin/bash
+
+# Author: Naresh S
+# Date: March-10-2025
+#
+# This script outputs creation of Backend server - Node JS
+#
+# Version: 1
+########################
+
 COMPONENT=backend
-#LOGFILE=/tmp/$COMPONENT.log
+
 MYSQL_HOSTNAME=mysql.eternallearnings.shop
 source ./common.sh
-# if [ $(id -u) -ne 0 ];
-# then
-# echo -e "\e[31m Your NOT a root user, Please use sudo \e[0m"
-# exit 2
-# else
-# echo -e "\e[32m Your running as admin, Proceeding for next steps\e[0m"
-# fi
-
-
 read -p "Enter mysql password :" MYSQLPASSWORD
-
-
-
-# stat() {
-# if [ $1 -eq 0 ];
-# then
-# echo -e "\e[32m success \e[0m"
-# else
-# echo -e "\e[31m You have some issues please verify \e[0m"
-# fi
-# }
 
 echo -e "nodejs is disble :"
 dnf module disable nodejs -y &>> $LOGFILE
