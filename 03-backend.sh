@@ -10,7 +10,7 @@
 
 COMPONENT=backend
 
-MYSQL_HOSTNAME=172.31.42.80
+MYSQL_HOSTNAME=172.31.36.100
 source ./common.sh
 read -p "Enter mysql password :" MYSQLPASSWORD
 
